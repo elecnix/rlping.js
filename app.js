@@ -9,6 +9,7 @@ app.use(app.router);
 console.log('static: ' + path.join(__dirname, 'public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('/pings', pings.recent);
+app.get('/ping', pings.add);
 app.use('/', express.static(path.join(__dirname, 'index.html')));
 
 var port = process.env.PORT || 5000;
