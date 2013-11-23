@@ -1,0 +1,11 @@
+{
+  "name": "rlping.js",
+  "description": "Receive and display web-pings from nodes in the Réseau Libre mesh network when they boot for the first time.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "pg": "2.x"
+  }
+}
+

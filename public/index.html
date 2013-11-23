@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr" ng-app="rlping">
+  <head>
+    <title>Pings | Réseau Libre</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.2.1/lodash.compat.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/restangular/1.1.3/restangular.min.js"></script>
+    <script src="javascripts/ui-bootstrap-tpls-0.7.0.min.js"></script>
+    <script src="javascripts/rlping.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/rlping.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ping ⇋ Réseau Libre</h1>
+      <div class="col-md-8" ng-controller="PingCtrl">
+        <div ng-show="pings.length == 0" class="alert alert-warning">
+          There were no pings received in the past hour.
+        </div>
+        <div ng-show="pings.length > 0">
+          If your router is in the list, click on the link using the IPv4 address to access the OpenWRT web management interface.
+          <h2>Latest Pings</h2>
+          <table>
+            <tr>
+              <th>date</th>
+              <th>wlanmac</th>
+              <th>ipv4</th>
+              <th>ipv6</th>
+            </tr>
+            <tr ng-repeat="ping in pings">
+              <td class="ping-date">{{ping.ping_date}}</td>
+              <td>
+                <a href="http://bwachter.lart.info/tools/mac/mac%2C{{ping.wlanmac}}">
+                  <span tooltip-placement="bottom" tooltip="Vendor lookup">
+                    <span class="macaddress">{{ping.wlanmac}}</span>
+                  </span>
+                </a>
+              </td>
+              <td>
+                <a href="http://{{ping.ipv4}}">
+                  <span tooltip-placement="bottom" tooltip="Router's Administration Page">
+                    <span class="ipv4-link">{{ping.ipv4}}</span>
+                  </span>
+                </a>
+              </td>
+              <td class="ipv6-link"><a href="http://[{{ping.ipv6}}]">{{ping.ipv6}}</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

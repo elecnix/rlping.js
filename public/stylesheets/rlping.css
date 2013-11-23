@@ -1,0 +1,7 @@
+.ipv4-link, .ipv6-link, .macaddress {
+  font-family: monospace;
+}
+
+td {
+  padding: 1em;
+}
