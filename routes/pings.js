@@ -5,7 +5,7 @@ exports.recent = function(req, res){
       console.log(err);
       return res.send(err);
     }
-    var query = "SELECT ping_date, wlanmac, ipv4, ipv6 FROM pings";
+    var query = "SELECT ping_date, wlanmac, ipv4, ipv6 FROM pings WHERE extract(minute from (now() - ping_date)) <= 360 ORDER BY ping_date DESC";
     var params = [];
     client.query(query, params, function(err, result) {
       done();
