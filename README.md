@@ -32,7 +32,7 @@ Or push to Heroku:
 
 Access the 'ping' URL:
 
-    http://localhost:5000/ping?wlanmac=00:00:00:00:00:00&ipv4=0.0.0.0&ipv6=fe80::1111:2222:3333:4444
+    http://localhost:5000/ping?wlanmac=00:00:00:00:00:00&ipv4=0.0.0.0/24&ipv6=fd64:1234:5678::1/60
 
 Then a new entry should appear in the list at:
 

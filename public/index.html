@@ -38,13 +38,13 @@
                 </a>
               </td>
               <td>
-                <a href="http://{{ping.ipv4}}">
+                <a href="http://{{ping.ipv4|iphref}}">
                   <span tooltip-placement="bottom" tooltip="Router's Administration Page">
                     <span class="ipv4-link">{{ping.ipv4}}</span>
                   </span>
                 </a>
               </td>
-              <td class="ipv6-link"><a href="http://[{{ping.ipv6}}]">{{ping.ipv6}}</a></td>
+              <td class="ipv6-link"><a href="http://[{{ping.ipv6|iphref}}]">{{ping.ipv6}}</a></td>
             </tr>
           </table>
         </div>

@@ -10,5 +10,10 @@ angular.module('rlping', ['restangular', 'ui.bootstrap']).
     }, function errorCallback() {
       alert("Oops error from server :(");
     });
+  }).
+  filter('iphref', function() {
+    return function(input) {
+      return input.replace(/\/.*/, '');
+    }
   });
 
